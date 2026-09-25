@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 import { Blogs } from './blogs';
 
 @Component({
-  imports: [],
+  imports: [
+    MatCardModule
+  ],
   selector: 'app-blogs-section',
   styleUrl: './blogs-section.css',
   templateUrl: './blogs-section.html',
 })
+
 export class BlogsSection {
   blogs: Blogs[] = [
     {
