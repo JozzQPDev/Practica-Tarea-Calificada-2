@@ -1,0 +1,49 @@
+<section class="max-w-[1700px] mx-auto px-6 py-20 mt-10 text-black bg-white">
+
+  <!-- Encabezado de la Sección -->
+  <h2 class="text-4xl md:text-7xl font-bold tracking-tight max-w-4xl leading-tight mb-18">
+    Unlock Potential with our Specialized Services
+  </h2>
+
+  <!-- Contenedor con bordes externos superior e izquierdo -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-gray-200">
+
+    @for (service of services; track service.title; let idx = $index) {
+      <!-- CORREGIDO: Ajustada la lógica de ngClass para balancear las filas y columnas -->
+      <div class="p-8 md:p-14 flex flex-col justify-between min-h-[320px] transition-all duration-300 hover:shadow-xl hover:z-10 bg-white
+                  border-b border-r border-gray-200"
+           [ngClass]="{
+             'md:border-r-0 lg:border-r': idx === 1,
+             'lg:border-r-0': idx === 2,
+             'md:border-b-0 lg:border-b': idx === 3
+           }">
+        <div>
+          <h3 class="text-xl md:text-3xl font-bold tracking-tight mb-4">
+            {{ service.title }}
+          </h3>
+          <p class="text-gray-400 text-1xl md:text-2xl leading-relaxed mb-8">
+            {{ service.description }}
+          </p>
+        </div>
+
+        <!-- Renderizado del SVG sanitizado -->
+        <div class="w-12 h-12 flex items-center justify-start text-neutral-800" [innerHTML]="service.iconSafeHtml">
+        </div>
+      </div>
+    }
+
+    <!-- Celda Final: View more services sin bordes -->
+    <div class="p-8 md:p-12 flex items-center justify-start lg:justify-center min-h-[320px] bg-white">
+      <a href="#" class="inline-flex items-center gap-3 font-bold text-lg md:text-2xl hover:underline group text-neutral-900 decoration-0">
+        View more services
+        <span class="flex items-center justify-center w-7 h-7 rounded-full bg-[#b6e33e] transition-transform duration-200 group-hover:scale-110">
+          <!-- CORREGIDO: Espacio de nombres oficial de la W3C -->
+          <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-neutral-950">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+          </svg>
+        </span>
+      </a>
+    </div>
+
+  </div>
+</section>

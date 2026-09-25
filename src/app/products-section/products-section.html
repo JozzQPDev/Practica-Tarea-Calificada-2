@@ -1,0 +1,53 @@
+<section class="max-w-[1700px] mx-auto px-6 py-20 mt-10 text-black bg-white">
+
+  <!-- Encabezado de la Sección -->
+  <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-18">
+    <h2 class="text-4xl md:text-7xl font-bold tracking-tight max-w-[800px] leading-tight">
+      Discover Our Signature<br>
+      cutting-edge tech <br>
+      Products
+    </h2>
+    <div class="max-w-[650px] w-full">
+      <p class="text-gray-500 text-sm md:text-[20px] mb-6 leading-relaxed">
+        Our product range offers state-of-the-art polymers and chemicals, designed to meet the needs of diverse industries. Each product is crafted with precision and innovation, ensuring exceptional performance and quality.
+      </p>
+      <a href="#" class="inline-flex items-center gap-3 font-medium text-[20px] hover:underline group decoration-0">
+        Learn More
+        <span class="flex items-center justify-center w-7 h-7 rounded-full border border-black/10 bg-[#b6e33e] transition-transform duration-200 group-hover:scale-110">
+          <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-neutral-950">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+
+    <!-- Cuadrícula de Productos -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+    @for (product of products; track product.title) {
+      <div class="relative aspect-square overflow-hidden group cursor-pointer bg-gray-100">
+        <!-- Imagen -->
+        <img [src]="product.imageUrl" [alt]="product.title" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+
+        <!-- Contenedor inferior oscuro translúcido para asegurar la legibilidad del texto -->
+        <div class="absolute bottom-0 left-0 w-full bg-black/40 backdrop-blur-[2px] p-5 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+          <!-- Título alineado de forma limpia -->
+          <h3 class="text-white text-2xl  tracking-wide">
+            {{ product.title }}
+          </h3>
+        </div>
+      </div>
+    }
+
+
+    <!-- Tarjeta Especial Verde Final CORREGIDA -->
+    <a href="#" class="bg-[#b6e33e] aspect-square flex items-center justify-center p-8 text-center hover:bg-[#a5cf34] transition-colors group cursor-pointer">
+      <span class="text-2xl font-medium text-black inline-flex items-center gap-2">
+        View More Products
+        <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </span>
+    </a>
+  </div>
+</section>

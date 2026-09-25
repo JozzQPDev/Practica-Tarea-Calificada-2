@@ -1,0 +1,18 @@
+<section class="max-w-[1700px] mx-auto px-6 py-16 pt-18 bg-white text-black">
+
+  <h2 class="text-4xl md:text-7xl font-bold tracking-tight text-neutral-900 leading-tight mb-14">
+    Our Technology Partners<br>
+    Who Trust US
+  </h2>
+
+  <div class="flex flex-wrap py-15 items-center justify-between gap-8 md:gap-12 lg:gap-15">
+    @for (partner of partners; track partner.name) {
+      <div class="flex items-center justify-center min-w-[120px] max-w-[280px] flex-1">
+        <img [src]="partner.logoUrl"
+             [alt]="partner.name"
+             class="h-auto w-full max-h-35 object-contain grayscale opacity-40 transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+      </div>
+    }
+  </div>
+
+</section>

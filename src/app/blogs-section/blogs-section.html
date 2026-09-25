@@ -1,0 +1,59 @@
+<section class="max-w-[1700px] mx-auto px-6 py-20 mt-10 text-black bg-white">
+
+  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-18">
+    <h2 class="text-4xl md:text-7xl font-bold tracking-tight text-neutral-900">
+      Our latest News & Blogs
+    </h2>
+    <a href="#" class="inline-flex items-center gap-3 font-semibold text-2xl hover:underline group text-neutral-900">
+      View more News & Blogs
+      <span class="flex items-center justify-center w-7 h-7 rounded-full bg-[#b6e33e] transition-transform duration-200 group-hover:scale-110">
+        <!-- CORREGIDO: xmlns oficial de la W3C -->
+        <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-neutral-950">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </span>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-15 mt-15">
+    @for (post of blogs; track post.title) {
+
+      <mat-card class="!border-0 !shadow-none !rounded-none bg-white flex flex-col group cursor-pointer  w-full mx-auto">
+
+        <div class="relative overflow-hidden aspect-[4/3]">
+          <img [src]="post.imageUrl" [alt]="post.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+          <div class="absolute bottom-0 left-0 w-full bg-[#b6e33e] text-neutral-950 px-4 py-2 flex justify-between items-center text-m font-medium select-none">
+            <div class="flex items-center gap-4">
+              <span>{{ post.likes }} likes</span>
+              <span>{{ post.comments }} comments</span>
+            </div>
+            <span>{{ post.date }}</span>
+          </div>
+        </div>
+
+        <mat-card-content class="!p-0 mt-6 flex-grow flex flex-col items-start gap-4">
+          <h3 class="text-[40px] font-medium tracking-tight text-neutral-900 leading-tight group-hover:text-neutral-700 transition-colors">
+            {{ post.title }}
+          </h3>
+
+          <p class="text-gray-400 text-[20px] leading-relaxed line-clamp-4">
+            {{ post.description }}
+          </p>
+
+          <a href="#" class="inline-flex items-center gap-2 text-[20px] hover:underline mt-auto pt-2 group/btn text-neutral-900">
+            Read More
+
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[#b6e33e] transition-transform duration-200 group-hover/btn:scale-110">
+              <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5 text-neutral-950">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+              </svg>
+            </span>
+          </a>
+        </mat-card-content>
+
+      </mat-card>
+    }
+  </div>
+
+</section>

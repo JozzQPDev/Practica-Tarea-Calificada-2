@@ -1,0 +1,42 @@
+<header class="fixed top-0 left-0 z-50 w-full transition-all duration-300"
+        [ngClass]="isScrolled ? 'bg-neutral-100/80 text-black backdrop-blur-md border-b border-black/10 shadow-lg' : 'bg-transparent text-white'">
+
+    <div class="mx-auto flex max-w-[1700px] items-center justify-between px-6 transition-all duration-300"
+         [ngClass]="isScrolled ? 'py-5' : 'py-14'">
+
+
+        <div class="flex items-center">
+            <div class="flex items-center gap-2 text-3xl font-bold tracking-wider">
+              <!-- Se añade ngClass y la transición para el filtro de la imagen -->
+              <img src="img/logo.png"
+                   class="justify-center h-8 w-auto transition-all duration-300"
+                   [ngClass]="isScrolled ? 'brightness-0' : ''">
+              <a href="/" class="text-3xl font-bold tracking-wider hover:opacity-90 transition-colors duration-300"
+               [ngClass]="isScrolled ? 'text-black' : 'text-white'">
+                POLY
+              </a>
+            </div>
+        </div>
+
+        <nav class="hidden md:block">
+            <ul class="flex items-center gap-8 text-[18px] font-light tracking-wide">
+                @for (item of navigationItems; track item.label) {
+                    <li>
+                        <a [href]="item.route" class="transition-colors duration-200"
+                           [ngClass]="isScrolled ? 'text-neutral-700 hover:text-black' : 'text-gray-300 hover:text-white'">
+                            {{ item.label }}
+                        </a>
+                    </li>
+                }
+            </ul>
+        </nav>
+
+        <div class="flex items-center">
+            <a href="/contact-us" class="px-7 py-3 text-xs font-semibold uppercase tracking-wider transition-all duration-300"
+               [ngClass]="isScrolled ? 'bg-neutral-950 text-white hover:bg-neutral-800' : 'bg-white text-neutral-900 hover:bg-gray-200'">
+                Contact Us
+            </a>
+        </div>
+
+    </div>
+</header>

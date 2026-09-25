@@ -1,0 +1,8 @@
+/* Quita los espacios de caja por defecto del componente de Material */
+mat-card {
+  background-color: transparent !important;
+}
+
+.mat-mdc-card-content {
+  padding: 0px !important;
+}

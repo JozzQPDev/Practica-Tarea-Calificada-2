@@ -1,0 +1,67 @@
+<footer class="bg-[#b6e33e] text-neutral-900 w-full pt-16 pb-8 px-6 font-sans">
+  <div class="max-w-[1700px] mx-auto">
+
+    <!-- Bloque Superior de Columnas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-14">
+
+      <!-- Columna 1: Branding y Descripción -->
+      <div class="flex flex-col gap-6 max-w-88">
+        <div class="flex items-center gap-2 text-3xl font-bold tracking-wider">
+          <img src="img/logo.png" class="h-10 w-auto brightness-0">
+          POLY
+        </div>
+        <p class="text-lg font-medium text-[#698612] leading-relaxed tracking-wide">
+          Lorem Ipsum is simply dummy text of the prints ring and typesetting industry. Lorem Ipsum.
+        </p>
+        <!-- Fila de redes sociales -->
+        <div class="flex items-center gap-6 mt-2">
+          @for (social of socials; track social.name) {
+            <a [href]="social.url" [attr.aria-label]="social.name" class="text-neutral-900 hover:opacity-70 transition-opacity" [innerHTML]="social.iconSafeHtml">
+            </a>
+          }
+        </div>
+      </div>
+
+      <!-- Columna 2: Company -->
+      <div>
+        <h3 class="text-2xl font-bold tracking-wide mb-6">Company</h3>
+        <ul class="flex flex-col gap-3 text-base font-medium">
+          @for (link of companyLinks; track link) {
+            <li>
+              <a href="#" class="text-lg font-medium text-[#698612] hover:text-black hover:underline transition-colors">{{ link }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Columna 3: Products -->
+      <div>
+        <h3 class="text-2xl font-bold tracking-wide mb-6">Products</h3>
+        <ul class="flex flex-col gap-3 text-base font-medium ">
+          @for (link of productLinks; track link) {
+            <li>
+              <a href="#" class="text-lg font-medium text-[#698612] hover:text-black hover:underline transition-colors">{{ link }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Columna 4: Contact -->
+      <div>
+        <h3 class="text-2xl font-bold tracking-wide mb-6">Contact</h3>
+        <ul class="flex flex-col gap-3 text-lg font-medium text-[#698612]">
+          @for (detail of contactDetails; track detail) {
+            <li class="break-all">{{ detail }}</li>
+          }
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Barra Inferior de Copyright -->
+    <div class="border-t border-neutral-900/10 pt-8 text-center text-lg font-medium text-[#698612] select-none">
+      Copyright 2024 Poly. All Rights Reserved.
+    </div>
+
+  </div>
+</footer>
